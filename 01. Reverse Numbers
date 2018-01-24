@@ -1,0 +1,10 @@
+namespace _01._Reverse_Numbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+        }
+    }
+}
