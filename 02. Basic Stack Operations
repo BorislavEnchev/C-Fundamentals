@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace _02._Basic_Stack_Operations
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var input = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            var numbersToPush = input[0];
+            var numbersToPop = input[1];
+            var numberToCheck = input[2];
+
+            var numbers = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            var stack = new Stack<int>();
+
+            var minNumber = int.MaxValue;
+            for (int i = 0; i < numbersToPush; i++)
+            {
+                stack.Push(numbers[i]);
+            }
+
+            for (int i = 0; i < numbersToPop; i++)
+            {
+                stack.Pop();
+            }
+
+            if (stack.Count == 0)
+            {
+                Console.WriteLine(0);
+                return;
+            }
+
+            foreach (var item in stack)
+            {
+                if (item == numberToCheck)
+                {
+                    Console.WriteLine("true");
+                    return;
+                }
+                if (item < minNumber)
+                {
+                    minNumber = item;
+                }
+            }
+            Console.WriteLine(minNumber);
+        }
+    }
+}
